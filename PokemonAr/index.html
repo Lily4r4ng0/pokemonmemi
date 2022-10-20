@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>pokemongo ar</title>
+    <!-- emily -->
+
+    <!-- libs -->
+    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+    <script src="https://raw.githack.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://raw.githack.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+    <!-- js logic -->
+    <script src="./script.js"></script>
+</head>
+
+<!-- SCRIPT -->
+<body style='margin: 0; overflow: hidden;'>
+
+    <!-- to write coords -->
+
+    <p id="demo"></p>
+
+    <!-- extended lib tag -->
+    <a-scene
+        vr-mode-ui="enabled: false"
+		embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+       
+        <!-- model -->
+        <a-entity 
+            gltf-model="./assets/magnemite/scene.gltf"  
+            rotation="0 180 0" scale="0.15 0.15 0.15" 
+            gps-entity-place="longitude: 74.079461; latitude: 4.695876;" 
+            animation-mixer
+        /></a-entity>
+        <!-- 4°41'45.2"N 74°04'46.1"W-->
+
+        <!-- camera tag -->
+        <!-- read camera properties-->
+        <a-camera gps-camera rotation-reader></a-camera>
+	</a-scene>
+
+    <!-- swap model buttom -->
+    <div class="centered">
+        <button data-action="change"></button>
+    </div>
+
+</body>
+
+<!-- Link to access the ar-->
+<!-- https://<your-username>.github.io/location-based-ar-tutorial/ -->
+<!-- https://<your-username>.github.io/pokemongo/ -->
